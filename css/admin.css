@@ -23,6 +23,56 @@
     float: none;
     clear: both
 }
+.tbl-full{
+    width: 100%;
+    
+}
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+table tr td{
+    padding: 1%;
+}
+.btn-primary{
+    background-color: #1e90ff;
+    color: white;
+    border-radius: 10px;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-primary:hover{
+    background-color:#3742fa;
+
+}
+.btn-secondary{
+    background-color: #7bed9f;
+    color: black;
+    border-radius: 10px;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-secondary:hover{
+    background-color:#2ed573;
+
+}
+.btn-tertiary{
+    background-color: #ff6b81;
+    color: white;
+    border-radius: 10px;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-tertiary:hover{
+    background-color:#ff4757;
+
+}
+
+
 /* css for menu */
 .menu{
     text-align: center;
