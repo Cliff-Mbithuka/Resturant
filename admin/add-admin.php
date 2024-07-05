@@ -6,7 +6,15 @@ include('partials/menu.php');
         <h1>Add Admin</h1>
 
         <br><br>
-
+        <?php 
+if(isset($_SESSION['add']))// checking whether the session is set or not
+{
+    echo $_SESSION['add'];
+    unset($_SESSION['add']); // removing session message
+};
+?>
+<br/>
+<br/>
 
         <form action="" method="post">
 

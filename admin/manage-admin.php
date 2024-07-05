@@ -11,6 +11,7 @@ include('partials/menu.php');
 <?php 
 if(isset($_SESSION['add'])){
     echo $_SESSION['add'];
+    unset($_SESSION['add']); // removing session message
 };
 ?>
 <br/>
@@ -28,34 +29,52 @@ if(isset($_SESSION['add'])){
                 <th>Username</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td>1. </td>
-                <td>Clifford Mbithuka</td>
-                <td>Cliff</td>
+<?php
+            // Query to get all Admin
+$sql = "SELECT * FROM tbl_name";
+// Execute the Query
+$res = mysqli_query($conn, $sql);
+
+// check whether the Query is Executed or not
+if($res==TRUE){
+    //count Rows to check whether we have data in the database or not
+    $count = mysqli_num_rows($res);
+
+$sn=1; //create a variable and assign the value
+
+    //check the num of rows 
+    if($count> 0){
+        //we have data in data base
+        while($rows=mysqli_fetch_assoc($res)){
+            // using while loop to get all the data from data base
+            //while loop will run as long as we have data in the DB
+
+            //Get individual data
+            $id=$rows['id'];
+            $full_name=$rows['full_name'];
+            $username =$rows['username'];
+
+            //display the values in our table
+            ?>
+<tr>
+                <td><?php echo $sn++; ?> </td>
+                <td><?php echo $full_name; ?></td>
+                <td><?php echo $username; ?></td>
                 <td>
                      <a href="#" class="btn-secondary">update Admin</a>
                      <a href="#" class="btn-tertiary">delete admin</a>
                     
                 </td>
             </tr>
-            <tr>
-                <td>2. </td>
-                <td>Clifford Mbithuka</td>
-                <td>Cliff</td>
-                <td>
-                <a href="#" class="btn-secondary">update Admin</a>
-                <a href="#" class="btn-tertiary">delete admin</a>
-                </td>
-            </tr>
-            <tr>
-                <td>3 . </td>
-                <td>Clifford Mbithuka</td>
-                <td>Cliff</td>
-                <td>
-                <a href="#" class="btn-secondary">update Admin</a>
-                <a href="#" class="btn-tertiary">delete admin</a>
-                </td>
-            </tr>
+
+<?php
+        }
+    }else{
+        // we do not have data in database
+    }
+}
+?>
+            
         </table>
     </div>
 </div>
