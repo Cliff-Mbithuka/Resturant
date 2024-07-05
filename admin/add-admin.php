@@ -67,9 +67,17 @@ if (isset($_POST['submit'])) {
 
     // check whether the (Query is executed) data is inserted or not and display appropriate message
     if($res == TRUE){
- echo 'Data inserted';
+//  echo 'Data inserted';
+//create session variable to display message
+$_SESSION['add'] = 'Admin Added Successfully';
+// Redirect page Manage Admin
+header("location:".SITEURL.'admin/manage-admin.php');
     }else{
-echo 'failed to insert Data';
+// echo 'failed to insert Data';
+//create session variable to display message
+$_SESSION['add'] = 'failed to add admin';
+// Redirect page to Add Admin
+header("location:".SITEURL.'admin/add-admin.php');
     }
 
 }
