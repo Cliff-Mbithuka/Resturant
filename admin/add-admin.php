@@ -43,17 +43,34 @@ include('partials/menu.php');
 include('partials/footer.php');
 ?>
 
-<?php 
+<?php
 //provess the value from form and save it in database
 //check whether the submit button is clicked or not
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     // button clicked
-//    echo  "button clicked";
+    //    echo  "button clicked";
 
-//Get data from the form
+    //Get data from the form
+    $full_name = $_POST['full_name'];
+    $username = $_POST['username'];
+    $password = md5($_POST['password']); // password encryption with md5
 
-echo $full_name = $_POST['full_name'];
-echo $username = $_POST['username'];
-echo $password = $_POST['password'];
+    //SQL Query to save data in the database
+    $sql = "INSERT INTO tbl_name SET
+    full_name='$full_name',
+    username='$username',
+    password='$password'
+    ";
+
+    // Executing Query and saving data into database
+    $res = mysqli_query($conn, $sql) ;
+
+    // check whether the (Query is executed) data is inserted or not and display appropriate message
+    if($res == TRUE){
+ echo 'Data inserted';
+    }else{
+echo 'failed to insert Data';
+    }
+
 }
 ?>
