@@ -11,21 +11,19 @@ $sql = "DELETE FROM tbl_name WHERE id=$id";
 $res = mysqli_query($conn, $sql);
 
 //check whether the query executed successfully or not 
-if($res==true){
+if ($res == true) {
     // Query executed successfully and admin deleted successfully 
     // echo "Admin Deleted";
     //create session variable to display message
-    $_SESSION['delete'] = "Admin Deleted successfully";
+    $_SESSION['delete'] = "<div class='success'>Admin Deleted successfully</div>";
     // Redirect to manage admin page
-    header('location:'.SITEURL.'admin/manage-admin.php');
-}else{
+    header('location:' . SITEURL . 'admin/manage-admin.php');
+} else {
     //failed to delete admin
-// echo "Failed to delete Admin";
-$_SESSION['delete'] = "Failed to delete admin";
-// Redirect to manage admin page
-header('location:'.SITEURL.'admin/manage-admin.php');
+    // echo "Failed to delete Admin";
+    $_SESSION['delete'] = "<div class='error'>Failed to delete admin</div>";
+    // Redirect to manage admin page
+    header('location:' . SITEURL . 'admin/manage-admin.php');
 };
 
 //3. Redirect to manage Admin page with message (success/error)
-
-?>
