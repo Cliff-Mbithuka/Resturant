@@ -13,6 +13,11 @@ if(isset($_SESSION['add'])){
     echo $_SESSION['add'];
     unset($_SESSION['add']); // removing session message
 };
+
+if(isset($_SESSION["delete"])){
+    echo $_SESSION['delete'];
+    unset($_SESSION['delete']);
+}
 ?>
 <br/>
 <br/>
@@ -62,7 +67,7 @@ $sn=1; //create a variable and assign the value
                 <td><?php echo $username; ?></td>
                 <td>
                      <a href="#" class="btn-secondary">update Admin</a>
-                     <a href="#" class="btn-tertiary">delete admin</a>
+                     <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-tertiary">delete admin</a>
                     
                 </td>
             </tr>
